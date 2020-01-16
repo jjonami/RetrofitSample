@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val client = HttpClient.getInstance()
-        client.requestContributors("jjonami", "RetrofitSample")
+        client.requestContributors("jjonami", "AndroidSample")
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .doOnError {
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             }
             .subscribe { result ->
                 if ("User" == result[0].type) {
-                    Log.d(TAG, "subscribe ok")
+                    Log.d(TAG, result[0].toString())
                 } else {
                     Log.d(TAG, "subscribe ng")
                 }
